@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .list {
+    width: 500px;
+    height: 240px;
+    display: flex;
+    margin: 100px auto;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .item {
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: skyblue;
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sanjiao {
+    width: 0;
+    height: 0;
+    border-left: 17px solid black;
+    border-right: 17px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    cursor: pointer;
+  }
+</style>
+<body>
+  <div class="list">
+    <div class="item">
+      狗叫声
+      <div data-name="01" class="sanjiao"></div>
+    </div>
+    <div class="item">
+      海鸥叫声
+      <div data-name="02" class="sanjiao"></div>
+    </div>
+    <div class="item">
+      鸟叫声
+      <div data-name="03" class="sanjiao"></div>
+    </div>
+  </div>
+</body>
+<script>
+  const playBtns = document.querySelectorAll('div[data-name]')
+
+  for (const btn of playBtns) {
+    btn.onclick = e => {
+      console.log(e.target.dataset.name);
+      window.open(`./audio.html?name=${e.target.dataset.name}`, '_blank')
+    }
+  }
+</script>
+</html>
