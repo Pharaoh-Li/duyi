@@ -20,19 +20,18 @@
 
 <body>
   <div class="box">
-    <audio controls src="" muted="muted"></audio>
+    <audio controls src=""></audio>
   </div>
   <script>
     const audio = document.querySelector('audio')
 
     audio.ondurationchange = () => {
       audio.currentTime = 0
-      // audio.play()
+      audio.play()
     }
 
     function play(name) {
       audio.src = `./audio/${name}.mp3`
-      audio.muted = 'false'
     }
 
     function init() {
